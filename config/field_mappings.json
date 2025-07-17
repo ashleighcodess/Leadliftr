@@ -1,0 +1,54 @@
+{
+  "salesforce": {
+    "name": "Salesforce",
+    "description": "Field mappings for Salesforce CRM",
+    "mappings": {
+      "name": ".name a, .contactName, [data-field='Name']",
+      "email": ".email a, [data-field='Email'], a[href^='mailto:']",
+      "phone": ".phone, [data-field='Phone'], a[href^='tel:']",
+      "company": ".company, [data-field='Company'], .accountName",
+      "title": ".title, [data-field='Title'], .jobTitle",
+      "status": ".status, [data-field='Status'], .leadStatus"
+    },
+    "container_selector": ".listItem, .slds-table tbody tr, .x-grid3-row"
+  },
+  "hubspot": {
+    "name": "HubSpot",
+    "description": "Field mappings for HubSpot CRM",
+    "mappings": {
+      "name": ".contact-name, .name-cell a, [data-field='firstname'], [data-field='lastname']",
+      "email": ".email-cell, [data-field='email'], a[href^='mailto:']",
+      "phone": ".phone-cell, [data-field='phone'], a[href^='tel:']",
+      "company": ".company-cell, [data-field='company']",
+      "title": ".title-cell, [data-field='jobtitle']",
+      "status": ".status-cell, [data-field='hs_lead_status']"
+    },
+    "container_selector": ".contact-row, .crm-record, tbody tr"
+  },
+  "pipedrive": {
+    "name": "Pipedrive",
+    "description": "Field mappings for Pipedrive CRM", 
+    "mappings": {
+      "name": ".person-name, .name, [data-field='name']",
+      "email": ".email, [data-field='email'], a[href^='mailto:']",
+      "phone": ".phone, [data-field='phone'], a[href^='tel:']",
+      "company": ".organization, [data-field='org_name']",
+      "title": ".title, [data-field='job_title']",
+      "status": ".status, [data-field='status']"
+    },
+    "container_selector": ".listRow, .deal-row, .person-row"
+  },
+  "generic": {
+    "name": "Generic CRM",
+    "description": "Generic field mappings for unknown CRM systems",
+    "mappings": {
+      "name": ".name, .contact-name, .full-name, .person-name",
+      "email": ".email, .email-address, a[href^='mailto:']",
+      "phone": ".phone, .phone-number, .tel, a[href^='tel:']",
+      "company": ".company, .organization, .company-name",
+      "title": ".title, .job-title, .position",
+      "status": ".status, .lead-status, .contact-status"
+    },
+    "container_selector": "tr, .row, .item, .record, .contact, .lead"
+  }
+}
