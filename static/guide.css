@@ -644,6 +644,18 @@
 }
 
 /* Light Mode Adaptations */
+body.light-mode .step-content h3 {
+    color: #1a1a1a;
+}
+
+body.light-mode .step-content p {
+    color: #4a5568;
+}
+
+body.light-mode .tip-item {
+    color: #2d3748;
+}
+
 body.light-mode .demo-textarea {
     background: #f8fafc;
     color: #2d3748;
@@ -657,6 +669,30 @@ body.light-mode .source-code {
 
 body.light-mode .browser-content {
     background: #ffffff;
+}
+
+body.light-mode .crm-selector label,
+body.light-mode .mapping-item label {
+    color: #2d3748;
+}
+
+body.light-mode .demo-select,
+body.light-mode .mapping-item input {
+    background: #ffffff;
+    color: #2d3748;
+    border-color: #e2e8f0;
+}
+
+body.light-mode .scrubbing-options h6 {
+    color: #2d3748;
+}
+
+body.light-mode .checkbox-group label {
+    color: #4a5568;
+}
+
+body.light-mode .interface-header h5 {
+    color: #2d3748;
 }
 
 /* Responsive Design */
