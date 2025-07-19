@@ -3,9 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple CRM Lead Extractor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>CRM Lead Extractor Pro - Professional Lead Management</title>
+    
+    <!-- Meta Tags -->
+    <meta name="description" content="Professional CRM lead extraction tool with advanced scrubbing capabilities">
+    <meta name="author" content="CRM Lead Extractor">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
     <link href="/static/style.css" rel="stylesheet">
 </head>
 <body>
@@ -13,14 +29,16 @@
         <!-- Header -->
         <div class="row">
             <div class="col-12">
-                <nav class="navbar navbar-dark bg-success">
+                <nav class="navbar navbar-dark">
                     <div class="container-fluid">
                         <span class="navbar-brand mb-0 h1">
-                            <i class="fas fa-file-csv me-2"></i>
-                            Simple CRM Lead Extractor
+                            <i class="fas fa-chart-line me-2"></i>
+                            CRM Lead Extractor Pro
+                            <span class="badge bg-light text-dark ms-2" style="font-size: 0.5rem;">v2.0</span>
                         </span>
                         <div class="navbar-text text-white">
-                            <small>No Chrome setup required!</small>
+                            <i class="fas fa-shield-check me-2"></i>
+                            <small>Professional Lead Management & Scrubbing</small>
                         </div>
                     </div>
                 </nav>
@@ -31,14 +49,27 @@
         <div class="row mt-3">
             <div class="col-12">
                 <div class="alert alert-info">
-                    <h5><i class="fas fa-info-circle me-2"></i>How to use this tool:</h5>
-                    <ol class="mb-0">
-                        <li>Go to your CRM page with the leads you want to export</li>
-                        <li>Right-click on the page and select "View Page Source" or press Ctrl+U</li>
-                        <li>Copy all the HTML code and paste it in the box below</li>
-                        <li>Choose a preset for your CRM or configure custom field mappings</li>
-                        <li>Click "Export to CSV" to download your leads</li>
-                    </ol>
+                    <h5><i class="fas fa-rocket me-2"></i>Professional Lead Extraction & Scrubbing</h5>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p class="mb-2"><strong>Quick Start Guide:</strong></p>
+                            <ol class="mb-0">
+                                <li>Go to your CRM page with leads to export</li>
+                                <li>Right-click → "View Page Source" (or Ctrl+U)</li>
+                                <li>Copy all HTML code and paste below</li>
+                                <li>Configure field mappings or use presets</li>
+                                <li>Enable lead scrubbing for higher quality</li>
+                                <li>Export clean, mobile-ready leads</li>
+                            </ol>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="text-center">
+                                <i class="fas fa-users fa-3x text-primary mb-2"></i>
+                                <p class="small mb-0"><strong>Handles up to 500K leads</strong><br>
+                                Memory-efficient processing</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -146,58 +177,67 @@
                             <label for="maxLeads" class="form-label">Max Leads to Extract</label>
                             <input type="number" class="form-control" id="maxLeads" value="1000" min="1" max="500000">
                             <div class="form-text">
-                                <i class="fas fa-info-circle me-1"></i>
-                                Can handle hundreds of thousands of leads. Processing large datasets may take a few minutes.
+                                <i class="fas fa-bolt me-1 text-warning"></i>
+                                <strong>Optimized for scale:</strong> Can handle hundreds of thousands of leads with memory-efficient processing.
                             </div>
                         </div>
 
                         <!-- Lead Scrubbing Options -->
-                        <div class="card bg-light mb-3">
+                        <div class="card bg-light mb-3 hover-lift">
                             <div class="card-header">
                                 <h6 class="mb-0">
-                                    <i class="fas fa-filter me-2"></i>
+                                    <i class="fas fa-filter me-2 text-primary"></i>
                                     Lead Scrubbing (Optional)
+                                    <span class="badge bg-primary ms-2">Pro Feature</span>
                                 </h6>
                             </div>
                             <div class="card-body">
-                                <div class="form-check mb-2">
+                                <div class="form-check mb-3">
                                     <input class="form-check-input" type="checkbox" id="enableScrubbing">
-                                    <label class="form-check-label" for="enableScrubbing">
-                                        Enable Lead Scrubbing
+                                    <label class="form-check-label fw-bold" for="enableScrubbing">
+                                        <i class="fas fa-magic me-1"></i>
+                                        Enable Advanced Lead Scrubbing
                                     </label>
+                                    <div class="form-text">
+                                        Automatically removes low-quality leads for better campaign results
+                                    </div>
                                 </div>
                                 
-                                <div id="scrubOptions" style="display: none;">
+                                <div id="scrubOptions" style="display: none;" class="border-start border-primary border-3 ps-3">
                                     <div class="form-check mb-2">
                                         <input class="form-check-input" type="checkbox" id="filterLandlines" checked>
                                         <label class="form-check-label" for="filterLandlines">
+                                            <i class="fas fa-phone-slash me-1 text-danger"></i>
                                             Filter landlines, toll-free & VOIP numbers
                                         </label>
                                     </div>
                                     
-                                    <div class="form-check mb-2">
+                                    <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" id="filterLitigation">
                                         <label class="form-check-label" for="filterLitigation">
+                                            <i class="fas fa-gavel me-1 text-warning"></i>
                                             Filter litigation/legal keywords
                                         </label>
                                     </div>
                                     
-                                    <div class="form-text">
-                                        <i class="fas fa-shield-alt me-1"></i>
-                                        Scrubbing helps ensure higher quality mobile leads
+                                    <div class="alert alert-success py-2 mb-0">
+                                        <i class="fas fa-shield-check me-2"></i>
+                                        <small><strong>Higher Quality Leads:</strong> Scrubbing improves conversion rates by targeting mobile users</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="d-grid gap-2">
-                            <button class="btn btn-info" id="previewBtn">
+                            <button class="btn btn-info btn-lg" id="previewBtn">
                                 <i class="fas fa-eye me-2"></i>
                                 Preview Data
+                                <i class="fas fa-arrow-right ms-2"></i>
                             </button>
-                            <button class="btn btn-success" id="exportBtn">
-                                <i class="fas fa-file-csv me-2"></i>
-                                Export to CSV
+                            <button class="btn btn-success btn-lg" id="exportBtn">
+                                <i class="fas fa-download me-2"></i>
+                                Export Clean Leads to CSV
+                                <i class="fas fa-external-link-alt ms-2"></i>
                             </button>
                         </div>
                     </div>
