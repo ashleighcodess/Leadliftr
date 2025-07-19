@@ -1,19 +1,21 @@
-# CRM Lead Extractor
+# LeadLiftr
 
 ## Overview
 
-This is a Flask-based web application that extracts lead data from CRM systems using a simple HTML paste interface. The application allows users to paste HTML content, configure field mappings, extract lead data, and export to CSV format. It now includes an optional lead scrubbing feature to filter out landlines, toll-free numbers, VOIP numbers, and litigation-related leads for higher quality mobile leads.
+LeadLiftr is a trendy, Gen Z-style Flask web application that transforms CRM lead extraction into an engaging, modern experience. The app features vibrant gradients, animated elements, and casual language that appeals to younger users while maintaining powerful lead processing capabilities. Users can paste HTML content, configure field mappings, extract leads, and export clean data with an optional scrubbing feature.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+Preferred communication style: Trendy, Gen Z-friendly language with emojis and casual tone.
+Design preference: Younger generation aesthetic with vibrant colors, animations, and modern UI elements.
 
 ## System Architecture
 
 ### Frontend Architecture
 - **Framework**: Vanilla JavaScript with Bootstrap 5 for UI components
 - **Structure**: Single-page application (SPA) with event-driven interactions
-- **Styling**: Custom CSS with Bootstrap framework and Font Awesome icons
+- **Styling**: Trendy Gen Z-inspired CSS with vibrant gradients, animations, and emoji integration
+- **Design**: Modern glass morphism effects, floating animations, and neon color schemes
 - **Communication**: RESTful API calls to Flask backend
 
 ### Backend Architecture
