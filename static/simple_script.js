@@ -109,9 +109,16 @@ class SimpleCRMExtractor {
             document.getElementById('containerSelector').value = preset.container_selector;
         }
         
-        // Add field mappings from preset
-        Object.entries(preset.mappings).forEach(([fieldName, selector]) => {
-            this.addFieldMapping(fieldName, fieldName.charAt(0).toUpperCase() + fieldName.slice(1), selector);
+        // Add field mappings from preset in specific order
+        const fieldOrder = presetName === 'ringy' ? 
+            ['first_name', 'last_name', 'number', 'city', 'state', 'zip_code'] :
+            Object.keys(preset.mappings);
+            
+        fieldOrder.forEach(fieldName => {
+            if (preset.mappings[fieldName]) {
+                const displayName = fieldName.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+                this.addFieldMapping(fieldName, displayName, preset.mappings[fieldName]);
+            }
         });
         
         this.showMessage('success', `Loaded ${preset.name} configuration`);
