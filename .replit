@@ -14,15 +14,15 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "CRM Lead Extractor Server"
+args = "Simple CRM Extractor"
 
 [[workflows.workflow]]
-name = "CRM Lead Extractor Server"
+name = "Simple CRM Extractor"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python app.py"
+args = "python simple_app.py"
 waitForPort = 5000
 
 [[ports]]
