@@ -1599,14 +1599,79 @@ body.light-mode .btn-outline-light {
     border-color: #2d3748 !important;
 }
 
-body.light-mode .btn-outline-light:hover {
-    background-color: #2d3748 !important;
-    color: white !important;
+/* Floating Guide Button */
+.floating-guide-container {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.floating-guide-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--purple-gradient);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(156, 136, 255, 0.4);
+    transition: all 0.3s ease;
+    animation: float-gentle 3s ease-in-out infinite;
+}
+
+.floating-guide-btn:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 35px rgba(156, 136, 255, 0.6);
+    color: white;
+    text-decoration: none;
+}
+
+.floating-guide-btn i {
+    font-size: 1.5rem;
+    animation: lightbulb-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+@keyframes lightbulb-glow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.5); }
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 25px rgba(255, 255, 255, 0.6); }
 }
 
 /* Premium Navbar Text */
 .navbar-text {
     color: #4a5568 !important;
+}
+
+/* Mobile optimizations for theme toggle */
+@media (max-width: 768px) {
+    .navbar-nav {
+        margin-left: auto;
+    }
+    
+    .theme-toggle-header {
+        margin-left: auto;
+    }
+    
+    .floating-guide-container {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .floating-guide-btn {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .floating-guide-btn i {
+        font-size: 1.2rem;
+    }
 }
 
 /* Additional Mobile Optimizations */
@@ -1618,6 +1683,20 @@ body.light-mode .btn-outline-light:hover {
     .navbar-brand {
         font-size: 0.9rem;
         line-height: 1.2;
+    }
+    
+    .floating-guide-container {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .floating-guide-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .floating-guide-btn i {
+        font-size: 1.1rem;
     }
     
     .badge {
