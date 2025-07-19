@@ -1145,8 +1145,9 @@ body::after {
     padding: 0.75rem;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #000000 !important;
     font-weight: 500;
+    text-shadow: none;
 }
 
 .btn-trendy-analyze {
