@@ -141,14 +141,17 @@
                     <div class="card-body">
                         <div class="mb-3">
                             <label for="crmPreset" class="form-label">Select Your CRM</label>
-                            <select class="form-select" id="crmPreset">
-                                <option value="">Custom Configuration</option>
-                                <option value="ringy">Ringy CRM</option>
-                                <option value="salesforce">Salesforce</option>
-                                <option value="hubspot">HubSpot</option>
-                                <option value="pipedrive">Pipedrive</option>
-                                <option value="generic">Generic CRM</option>
-                            </select>
+                            <div class="select-wrapper">
+                                <select class="form-select" id="crmPreset">
+                                    <option value="">Custom Configuration</option>
+                                    <option value="ringy">Ringy CRM</option>
+                                    <option value="salesforce">Salesforce</option>
+                                    <option value="hubspot">HubSpot</option>
+                                    <option value="pipedrive">Pipedrive</option>
+                                    <option value="generic">Generic CRM</option>
+                                </select>
+                                <i class="fas fa-chevron-down select-arrow"></i>
+                            </div>
                             <div class="form-text">
                                 Presets automatically configure field mappings for popular CRM systems
                             </div>
