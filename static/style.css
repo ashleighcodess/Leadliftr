@@ -95,10 +95,7 @@ body::after {
     gap: 0.5rem;
 }
 
-.brand-emoji {
-    font-size: 2rem;
-    animation: bounce 2s infinite;
-}
+
 
 .brand-text {
     font-family: 'Nunito', sans-serif;
@@ -1118,20 +1115,14 @@ body::after {
     animation: bounce 2s infinite;
 }
 
-.btn-emoji {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-}
+
 
 .fire-emoji {
     margin-left: 0.5rem;
     animation: flame 1s infinite;
 }
 
-.tip-emoji {
-    font-size: 1.2rem;
-    margin-right: 0.5rem;
-}
+
 
 .step-title {
     font-weight: 700;
@@ -1421,9 +1412,14 @@ body::after {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.emoji-decoration {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    background: var(--primary-purple);
+    border-radius: 50%;
+    margin: 0 auto 0.5rem auto;
+    box-shadow: 0 0 10px rgba(156, 136, 255, 0.5);
+    animation: pulse 2s infinite;
 }
 
 .decoration-text {
@@ -1541,10 +1537,7 @@ body.light-mode .feature-point {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.footer-emoji {
-    margin-right: 0.5rem;
-    font-size: 1rem;
-}
+
 
 .footer-brand {
     background: var(--cyber-gradient);
