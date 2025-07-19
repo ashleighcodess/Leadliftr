@@ -32,6 +32,16 @@ def user_guide():
     """User guide page"""
     return render_template('user_guide.html')
 
+@app.route('/terms')
+def terms():
+    """Display the terms and conditions page"""
+    return render_template('terms.html')
+
+@app.route('/privacy')
+def privacy():
+    """Display the privacy policy page"""
+    return render_template('privacy.html')
+
 @app.route('/api/extract_from_html', methods=['POST'])
 def extract_from_html():
     """Extract lead data from provided HTML content"""
