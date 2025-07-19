@@ -102,6 +102,7 @@ body::after {
     background-clip: text;
     font-weight: 900;
     letter-spacing: -0.5px;
+    font-size: 1.8rem;
 }
 
 .bg-gradient-fire {
@@ -1672,17 +1673,68 @@ body.light-mode .btn-outline-light {
     .floating-guide-btn i {
         font-size: 1.2rem;
     }
+    
+    /* Mobile responsive adjustments */
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .card {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .form-control {
+        font-size: 1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.6rem;
+    }
+    
+    .brand-text {
+        font-size: 1.6rem;
+    }
 }
 
 /* Additional Mobile Optimizations */
 @media (max-width: 480px) {
     .container-fluid {
-        padding: 0 0.25rem;
+        padding: 0 0.5rem;
     }
     
     .navbar-brand {
-        font-size: 0.9rem;
+        font-size: 1.4rem;
         line-height: 1.2;
+    }
+    
+    .brand-text {
+        font-size: 1.4rem;
     }
     
     .floating-guide-container {
@@ -1698,6 +1750,61 @@ body.light-mode .btn-outline-light {
     .floating-guide-btn i {
         font-size: 1.1rem;
     }
+    
+    .hero-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 0.75rem;
+    }
+    
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    .form-control {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.8rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stats-card {
+        padding: 0.75rem;
+    }
+    
+    .form-floating label {
+        font-size: 0.9rem;
+    }
+    
+    .step-card {
+        margin-bottom: 1rem;
+        padding: 0.75rem;
+    }
+    
+    .progress {
+        height: 8px;
+    }
+}
     
     .badge {
         font-size: 0.55em;
