@@ -99,6 +99,7 @@ body::after {
 }
 
 .brand-text {
+    font-family: 'Nunito', sans-serif;
     background: var(--fire-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
