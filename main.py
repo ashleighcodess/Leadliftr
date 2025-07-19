@@ -12,6 +12,10 @@ from simple_app import app
 # This exposes the Flask app as 'app' for gunicorn to find
 application = app
 
+# Make sure required directories exist for production
+os.makedirs('config', exist_ok=True)
+os.makedirs('exports', exist_ok=True)
+
 if __name__ == "__main__":
     # Get port from environment variable (for deployment platforms)
     port = int(os.environ.get('PORT', 5000))

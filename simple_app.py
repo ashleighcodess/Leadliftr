@@ -245,6 +245,20 @@ def get_field_mappings():
             'message': f'Failed to load field mappings: {str(e)}'
         })
 
+@app.route('/health')
+def health_check():
+    """Health check endpoint for deployment platforms"""
+    return jsonify({
+        'status': 'healthy',
+        'service': 'LeadLiftr',
+        'version': '1.0.0'
+    }), 200
+
+@app.route('/ping')
+def ping():
+    """Simple ping endpoint"""
+    return 'pong', 200
+
 if __name__ == '__main__':
     # Ensure required directories exist
     os.makedirs('config', exist_ok=True)
