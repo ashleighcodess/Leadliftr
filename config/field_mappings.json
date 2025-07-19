@@ -40,16 +40,14 @@
   },
   "ringy": {
     "name": "Ringy CRM",
-    "description": "Field mappings for Ringy CRM system",
+    "description": "Field mappings for Ringy CRM system - First Name, Last Name, Number, City, State, Zip Code",
     "mappings": {
-      "name": ".contact-name, .lead-name, .full-name, input[name*='name'], .name-field",
-      "email": ".email, .contact-email, input[type='email'], input[name*='email'], a[href^='mailto:']",
-      "phone": ".phone, .contact-phone, input[type='tel'], input[name*='phone'], a[href^='tel:']",
-      "company": ".company, .contact-company, input[name*='company'], .company-name",
-      "title": ".title, .job-title, input[name*='title'], .position",
-      "status": ".status, .lead-status, .contact-status, select[name*='status']",
-      "lead_source": ".source, .lead-source, select[name*='source']",
-      "notes": ".notes, .comments, textarea[name*='notes']"
+      "first_name": ".first-name, .firstname, input[name*='first'], input[name*='fname'], .name-first",
+      "last_name": ".last-name, .lastname, input[name*='last'], input[name*='lname'], .name-last",
+      "number": ".phone, .number, .contact-phone, input[type='tel'], input[name*='phone'], a[href^='tel:']",
+      "city": ".city, .contact-city, input[name*='city'], .address-city",
+      "state": ".state, .contact-state, input[name*='state'], select[name*='state'], .address-state",
+      "zip_code": ".zip, .zipcode, .postal, input[name*='zip'], input[name*='postal'], .address-zip"
     },
     "container_selector": ".contact-row, .lead-item, .contact-card, tr, .list-item, .contact-entry"
   },
