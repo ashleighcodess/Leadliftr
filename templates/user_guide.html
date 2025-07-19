@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeadLiftr - User Guide</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/guide.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-dark">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">
+                            <span class="brand-text">LeadLiftr</span>
+                            <span class="guide-badge">User Guide</span>
+                        </span>
+                        <div class="navbar-nav">
+                            <a href="/" class="btn btn-outline-light btn-sm">
+                                <i class="fas fa-arrow-left me-2"></i>Back to App
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Guide Content -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="guide-container">
+                    <!-- Step 1 -->
+                    <div class="guide-step" id="step1">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">1</div>
+                                    <h3>Access Your CRM System</h3>
+                                    <p>Navigate to your CRM platform (Ringy, Salesforce, HubSpot, etc.) and go to your leads or contacts page.</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>Make sure you're logged in to your CRM</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-eye"></i>
+                                            <span>Ensure all the leads you want to extract are visible on the page</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="browser-mockup">
+                                        <div class="browser-header">
+                                            <div class="browser-buttons">
+                                                <span class="btn-close"></span>
+                                                <span class="btn-minimize"></span>
+                                                <span class="btn-maximize"></span>
+                                            </div>
+                                            <div class="browser-url">https://your-crm.com/leads</div>
+                                        </div>
+                                        <div class="browser-content">
+                                            <div class="crm-interface">
+                                                <div class="crm-header">
+                                                    <h4>Your CRM - Leads</h4>
+                                                    <div class="search-bar"></div>
+                                                </div>
+                                                <div class="leads-table">
+                                                    <div class="lead-row animated-highlight">
+                                                        <div class="lead-name">John Smith</div>
+                                                        <div class="lead-phone">555-0123</div>
+                                                        <div class="lead-city">New York</div>
+                                                    </div>
+                                                    <div class="lead-row">
+                                                        <div class="lead-name">Jane Doe</div>
+                                                        <div class="lead-phone">555-0456</div>
+                                                        <div class="lead-city">Chicago</div>
+                                                    </div>
+                                                    <div class="lead-row">
+                                                        <div class="lead-name">Mike Johnson</div>
+                                                        <div class="lead-phone">555-0789</div>
+                                                        <div class="lead-city">Miami</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="guide-step" id="step2">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">2</div>
+                                    <h3>Extract Page Source</h3>
+                                    <p>Right-click anywhere on your CRM leads page and select "View Page Source" to access the HTML code.</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-mouse-pointer"></i>
+                                            <span>Right-click on an empty area of the page</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-code"></i>
+                                            <span>Look for "View Page Source" or "View Source" in the menu</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="browser-mockup">
+                                        <div class="browser-header">
+                                            <div class="browser-buttons">
+                                                <span class="btn-close"></span>
+                                                <span class="btn-minimize"></span>
+                                                <span class="btn-maximize"></span>
+                                            </div>
+                                            <div class="browser-url">https://your-crm.com/leads</div>
+                                        </div>
+                                        <div class="browser-content">
+                                            <div class="crm-interface">
+                                                <div class="context-menu animated-appear">
+                                                    <div class="menu-item">Back</div>
+                                                    <div class="menu-item">Forward</div>
+                                                    <div class="menu-item">Reload</div>
+                                                    <div class="menu-separator"></div>
+                                                    <div class="menu-item highlighted">View Page Source</div>
+                                                    <div class="menu-item">Inspect</div>
+                                                </div>
+                                                <div class="right-click-cursor"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="guide-step" id="step3">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">3</div>
+                                    <h3>Copy HTML Source Code</h3>
+                                    <p>Select all the HTML code using Ctrl+A (or Cmd+A on Mac), then copy it with Ctrl+C (or Cmd+C on Mac).</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-keyboard"></i>
+                                            <span>Use Ctrl+A to select all content quickly</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-copy"></i>
+                                            <span>Ctrl+C copies the selected content to clipboard</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="browser-mockup">
+                                        <div class="browser-header">
+                                            <div class="browser-buttons">
+                                                <span class="btn-close"></span>
+                                                <span class="btn-minimize"></span>
+                                                <span class="btn-maximize"></span>
+                                            </div>
+                                            <div class="browser-url">view-source:https://your-crm.com/leads</div>
+                                        </div>
+                                        <div class="browser-content">
+                                            <div class="source-code">
+                                                <div class="code-line selected">&lt;html&gt;</div>
+                                                <div class="code-line selected">&lt;head&gt;</div>
+                                                <div class="code-line selected">&nbsp;&nbsp;&lt;title&gt;CRM Leads&lt;/title&gt;</div>
+                                                <div class="code-line selected">&lt;/head&gt;</div>
+                                                <div class="code-line selected">&lt;body&gt;</div>
+                                                <div class="code-line selected">&nbsp;&nbsp;&lt;div class="lead-container"&gt;</div>
+                                                <div class="copy-indicator">Copied!</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="guide-step" id="step4">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">4</div>
+                                    <h3>Paste HTML in LeadLiftr</h3>
+                                    <p>Return to LeadLiftr and paste the HTML code into the "HTML Content" text area, then click "Analyze Content".</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-paste"></i>
+                                            <span>Use Ctrl+V (or Cmd+V on Mac) to paste</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-search"></i>
+                                            <span>Click "Analyze Content" to process the HTML</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="leadliftr-interface">
+                                        <div class="interface-header">
+                                            <h5>HTML Content Input</h5>
+                                        </div>
+                                        <div class="textarea-container">
+                                            <textarea class="demo-textarea" readonly>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;CRM Leads&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="lead-container"&gt;
+    &lt;div class="lead-row"&gt;
+      &lt;span class="name"&gt;John Smith&lt;/span&gt;
+      &lt;span class="phone"&gt;555-0123&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
+                                        </div>
+                                        <button class="btn btn-analyze">
+                                            <span class="analyze-text">Analyze Content</span>
+                                            <span class="analyze-loading">
+                                                <i class="fas fa-spinner fa-spin"></i>
+                                                Analyzing...
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="guide-step" id="step5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">5</div>
+                                    <h3>Configure Field Mappings</h3>
+                                    <p>Select your CRM type or configure custom field mappings to tell LeadLiftr where to find each piece of lead data.</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-cog"></i>
+                                            <span>Choose your CRM preset for automatic configuration</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-edit"></i>
+                                            <span>Customize field selectors if needed</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="mapping-interface">
+                                        <div class="crm-selector">
+                                            <label>Select Your CRM</label>
+                                            <select class="demo-select">
+                                                <option>Custom Configuration</option>
+                                                <option selected>Ringy CRM</option>
+                                                <option>Salesforce</option>
+                                                <option>HubSpot</option>
+                                            </select>
+                                        </div>
+                                        <div class="field-mappings">
+                                            <div class="mapping-item">
+                                                <label>First Name</label>
+                                                <input type="text" value=".name" readonly>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <label>Phone Number</label>
+                                                <input type="text" value=".phone" readonly>
+                                            </div>
+                                            <div class="mapping-item">
+                                                <label>City</label>
+                                                <input type="text" value=".city" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="guide-step" id="step6">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="step-content">
+                                    <div class="step-number">6</div>
+                                    <h3>Extract and Download</h3>
+                                    <p>Click "Extract Data" to process your leads, optionally enable lead scrubbing, then download your clean CSV file.</p>
+                                    <div class="step-tips">
+                                        <div class="tip-item">
+                                            <i class="fas fa-filter"></i>
+                                            <span>Enable scrubbing to remove low-quality leads</span>
+                                        </div>
+                                        <div class="tip-item">
+                                            <i class="fas fa-download"></i>
+                                            <span>Your CSV file will download automatically</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="demo-screen">
+                                    <div class="extraction-interface">
+                                        <div class="scrubbing-options">
+                                            <h6>Lead Scrubbing Options</h6>
+                                            <div class="checkbox-group">
+                                                <label>
+                                                    <input type="checkbox" checked>
+                                                    Remove landlines
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" checked>
+                                                    Remove VOIP numbers
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox">
+                                                    Remove litigation risks
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-extract">
+                                            <span class="extract-text">Extract Data</span>
+                                            <span class="extract-progress">
+                                                <div class="progress-bar">
+                                                    <div class="progress-fill"></div>
+                                                </div>
+                                                Processing leads...
+                                            </span>
+                                        </button>
+                                        <div class="download-notification">
+                                            <i class="fas fa-check-circle"></i>
+                                            CSV file downloaded successfully!
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="guide-navigation">
+                        <button class="nav-btn prev-btn" id="prevBtn" disabled>
+                            <i class="fas fa-chevron-left"></i>
+                            Previous
+                        </button>
+                        <div class="step-indicators">
+                            <span class="step-dot active" data-step="1"></span>
+                            <span class="step-dot" data-step="2"></span>
+                            <span class="step-dot" data-step="3"></span>
+                            <span class="step-dot" data-step="4"></span>
+                            <span class="step-dot" data-step="5"></span>
+                            <span class="step-dot" data-step="6"></span>
+                        </div>
+                        <button class="nav-btn next-btn" id="nextBtn">
+                            Next
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+
+                    <!-- Quick Start Button -->
+                    <div class="quick-start-section">
+                        <a href="/" class="btn btn-primary btn-lg">
+                            <i class="fas fa-rocket me-2"></i>
+                            Start Extracting Leads Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="/static/guide.js"></script>
+</body>
+</html>

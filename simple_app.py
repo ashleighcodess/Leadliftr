@@ -27,6 +27,11 @@ def index():
     """Main application page"""
     return render_template('simple_index.html')
 
+@app.route('/guide')
+def user_guide():
+    """User guide page"""
+    return render_template('user_guide.html')
+
 @app.route('/api/extract_from_html', methods=['POST'])
 def extract_from_html():
     """Extract lead data from provided HTML content"""
