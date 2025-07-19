@@ -16,12 +16,19 @@ class CSVExporter:
         
         # Default column mapping and order
         self.default_columns = [
+            'first_name', 'last_name', 'number', 'city', 'state', 'zip_code',
             'name', 'email', 'phone', 'company', 'title', 'status', 
             'lead_source', 'notes', 'created_date', 'last_contact'
         ]
         
         # Column display names
         self.column_display_names = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'number': 'Number',
+            'city': 'City',
+            'state': 'State',
+            'zip_code': 'Zip Code',
             'name': 'Full Name',
             'email': 'Email Address',
             'phone': 'Phone Number',
