@@ -490,3 +490,49 @@ function selectFieldSuggestion(fieldType, selector) {
 
 // Initialize the application
 const app = new SimpleCRMExtractor();
+
+// Theme Toggle Functionality
+class ThemeToggle {
+    constructor() {
+        this.isDarkMode = true; // Default to dark mode
+        this.themeToggle = document.getElementById('themeToggle');
+        this.initializeTheme();
+        this.bindEvents();
+    }
+
+    initializeTheme() {
+        // Check if user has a saved preference
+        const savedTheme = localStorage.getItem('leadliftr-theme');
+        if (savedTheme) {
+            this.isDarkMode = savedTheme === 'dark';
+        }
+        this.applyTheme();
+    }
+
+    bindEvents() {
+        if (this.themeToggle) {
+            this.themeToggle.addEventListener('click', () => this.toggleTheme());
+        }
+    }
+
+    toggleTheme() {
+        this.isDarkMode = !this.isDarkMode;
+        this.applyTheme();
+        this.saveTheme();
+    }
+
+    applyTheme() {
+        if (this.isDarkMode) {
+            document.body.classList.remove('light-mode');
+        } else {
+            document.body.classList.add('light-mode');
+        }
+    }
+
+    saveTheme() {
+        localStorage.setItem('leadliftr-theme', this.isDarkMode ? 'dark' : 'light');
+    }
+}
+
+// Initialize theme toggle
+const themeToggle = new ThemeToggle();
