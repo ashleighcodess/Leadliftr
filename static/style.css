@@ -306,14 +306,17 @@ body::after {
     right: 1rem;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--text-secondary);
+    color: var(--primary-purple);
     pointer-events: none;
     font-size: 0.9rem;
     transition: var(--transition);
+    opacity: 0.8;
 }
 
 .select-wrapper:hover .select-arrow {
     color: var(--primary-purple);
+    opacity: 1;
+    transform: translateY(-50%) scale(1.1);
 }
 
 /* Lead Scrubbing Section */
