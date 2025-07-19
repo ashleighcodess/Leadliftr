@@ -1413,13 +1413,11 @@ body::after {
     padding: 1.5rem 1rem;
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    animation: float 3s ease-in-out infinite;
 }
 
 .emoji-decoration {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    animation: wiggle 2s infinite;
 }
 
 .decoration-text {
