@@ -1634,6 +1634,31 @@ body.light-mode .footer-separator {
     color: #9ca3af;
 }
 
+/* Legal pages text styling */
+.terms-content p, .privacy-content p {
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.terms-content ul, .privacy-content ul {
+    color: var(--text-primary);
+}
+
+.terms-content li, .privacy-content li {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+/* Light mode legal pages */
+body.light-mode .terms-content p,
+body.light-mode .privacy-content p,
+body.light-mode .terms-content ul,
+body.light-mode .privacy-content ul,
+body.light-mode .terms-content li,
+body.light-mode .privacy-content li {
+    color: #374151;
+}
+
 body.light-mode .btn-outline-light {
     color: #2d3748 !important;
     border-color: #2d3748 !important;
