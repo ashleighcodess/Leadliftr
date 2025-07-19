@@ -8,6 +8,7 @@ import time
 from data_extractor import DataExtractor
 from csv_exporter import CSVExporter
 from batch_processor import BatchProcessor
+from lead_scrubber import LeadScrubber
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -19,6 +20,7 @@ app = Flask(__name__)
 data_extractor = DataExtractor()
 csv_exporter = CSVExporter()
 batch_processor = BatchProcessor()
+lead_scrubber = LeadScrubber()
 
 @app.route('/')
 def index():
@@ -160,17 +162,30 @@ def export_from_html():
                     'message': 'No data extracted from the provided HTML'
                 })
             
+            # Apply lead scrubbing if enabled
+            scrub_config = export_config.get('scrub_config', {})
+            if scrub_config.get('enable_scrubbing', False):
+                scrub_results = lead_scrubber.scrub_leads(extracted_data, scrub_config)
+                final_data = scrub_results['clean_leads']
+                scrub_summary = lead_scrubber.get_scrubbing_summary(scrub_results['stats'])
+                logger.info(f"Lead scrubbing results:\n{scrub_summary}")
+                filename_suffix = f"_scrubbed_{len(final_data)}_clean"
+            else:
+                final_data = extracted_data
+                filename_suffix = f"_{len(final_data)}_records"
+            
             # Export to CSV
-            csv_file_path = csv_exporter.export_to_csv(extracted_data, export_config)
+            csv_file_path = csv_exporter.export_to_csv(final_data, export_config)
             
             # Clear extracted data from memory immediately
             extracted_data = None
+            final_data = None
             gc.collect()
             
             return send_file(
                 csv_file_path,
                 as_attachment=True,
-                download_name=f"crm_leads_export.csv",
+                download_name=f"crm_leads{filename_suffix}.csv",
                 mimetype='text/csv'
             )
         

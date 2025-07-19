@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a Flask-based web application that extracts lead data from CRM systems by connecting to Chrome's remote debugging interface. The application allows users to connect to Chrome, select tabs, configure field mappings, and extract lead data to CSV format.
+This is a Flask-based web application that extracts lead data from CRM systems using a simple HTML paste interface. The application allows users to paste HTML content, configure field mappings, extract lead data, and export to CSV format. It now includes an optional lead scrubbing feature to filter out landlines, toll-free numbers, VOIP numbers, and litigation-related leads for higher quality mobile leads.
 
 ## User Preferences
 
@@ -26,21 +26,29 @@ Preferred communication style: Simple, everyday language.
 
 ### Core Classes
 
-1. **ChromeConnector** (`chrome_connector.py`)
-   - Handles connection to Chrome via DevTools Protocol
-   - Manages WebSocket connections and tab interactions
-   - Uses Chrome's remote debugging port (default 9222)
-
-2. **DataExtractor** (`data_extractor.py`)
+1. **DataExtractor** (`data_extractor.py`)
    - Extracts lead data from HTML using BeautifulSoup
    - Configurable field mappings with CSS selectors
    - Data validation using regex patterns
    - Supports multiple extraction strategies
+   - Handles up to 500,000 leads efficiently
 
-3. **CSVExporter** (`csv_exporter.py`)
+2. **CSVExporter** (`csv_exporter.py`)
    - Exports extracted data to CSV format using pandas
    - Handles data formatting and validation
    - Creates exports directory and manages file naming
+
+3. **BatchProcessor** (`batch_processor.py`)
+   - Memory-efficient processing for large datasets (>10,000 leads)
+   - Processes data in configurable batch sizes (default 5,000)
+   - Direct CSV writing to avoid memory accumulation
+   - Automatic garbage collection for performance
+
+4. **LeadScrubber** (`lead_scrubber.py`)
+   - Filters out landlines, toll-free, and VOIP numbers
+   - Detects litigation-related keywords in lead data
+   - Provides scrubbing statistics and summaries
+   - Improves lead quality for mobile-focused campaigns
 
 ### Configuration System
 
@@ -63,26 +71,31 @@ Preferred communication style: Simple, everyday language.
 
 ## Data Flow
 
-1. **Connection Phase**
-   - User starts Chrome with remote debugging enabled
-   - Application connects to Chrome on specified port
-   - Available tabs are retrieved and displayed
+1. **HTML Input Phase**
+   - User pastes HTML content from CRM system
+   - Application analyzes HTML structure for container suggestions
+   - Field mappings are configured (manual or preset)
 
 2. **Configuration Phase**
-   - User selects target CRM tab
-   - Field mappings are configured (manual or preset)
    - Container selectors are defined for data extraction
+   - Maximum lead count is set (up to 500,000)
+   - Optional lead scrubbing settings are configured
 
 3. **Extraction Phase**
-   - HTML content is retrieved from selected tab
    - BeautifulSoup parses HTML structure
    - CSS selectors extract data based on field mappings
    - Data is validated and formatted
+   - Large datasets use batch processing for memory efficiency
 
-4. **Export Phase**
+4. **Scrubbing Phase (Optional)**
+   - Phone numbers are analyzed for landline/VOIP patterns
+   - Lead data is checked for litigation-related keywords
+   - Unwanted leads are filtered out based on user settings
+
+5. **Export Phase**
    - Extracted data is formatted for CSV export
-   - File is generated in exports directory
-   - User can download the CSV file
+   - File is generated and served to user
+   - Data is immediately cleared from memory after download
 
 ## External Dependencies
 

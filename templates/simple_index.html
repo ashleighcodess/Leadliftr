@@ -150,6 +150,45 @@
                                 Can handle hundreds of thousands of leads. Processing large datasets may take a few minutes.
                             </div>
                         </div>
+
+                        <!-- Lead Scrubbing Options -->
+                        <div class="card bg-light mb-3">
+                            <div class="card-header">
+                                <h6 class="mb-0">
+                                    <i class="fas fa-filter me-2"></i>
+                                    Lead Scrubbing (Optional)
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-check mb-2">
+                                    <input class="form-check-input" type="checkbox" id="enableScrubbing">
+                                    <label class="form-check-label" for="enableScrubbing">
+                                        Enable Lead Scrubbing
+                                    </label>
+                                </div>
+                                
+                                <div id="scrubOptions" style="display: none;">
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="filterLandlines" checked>
+                                        <label class="form-check-label" for="filterLandlines">
+                                            Filter landlines, toll-free & VOIP numbers
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-check mb-2">
+                                        <input class="form-check-input" type="checkbox" id="filterLitigation">
+                                        <label class="form-check-label" for="filterLitigation">
+                                            Filter litigation/legal keywords
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="form-text">
+                                        <i class="fas fa-shield-alt me-1"></i>
+                                        Scrubbing helps ensure higher quality mobile leads
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                         <div class="d-grid gap-2">
                             <button class="btn btn-info" id="previewBtn">

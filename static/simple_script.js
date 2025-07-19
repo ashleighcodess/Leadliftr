@@ -26,6 +26,12 @@ class SimpleCRMExtractor {
         // Data extraction
         document.getElementById('previewBtn').addEventListener('click', () => this.previewData());
         document.getElementById('exportBtn').addEventListener('click', () => this.exportToCSV());
+        
+        // Lead scrubbing toggle
+        document.getElementById('enableScrubbing').addEventListener('change', (e) => {
+            const scrubOptions = document.getElementById('scrubOptions');
+            scrubOptions.style.display = e.target.checked ? 'block' : 'none';
+        });
     }
 
     initializeFieldMappings() {
@@ -348,6 +354,18 @@ class SimpleCRMExtractor {
             }
         });
         
+        // Get scrubbing configuration
+        const enableScrubbing = document.getElementById('enableScrubbing').checked;
+        const scrubConfig = {
+            enable_scrubbing: enableScrubbing
+        };
+        
+        if (enableScrubbing) {
+            scrubConfig.filter_landlines = document.getElementById('filterLandlines').checked;
+            scrubConfig.filter_litigation = document.getElementById('filterLitigation').checked;
+            scrubConfig.phone_field = 'number'; // Assuming phone field is 'number'
+        }
+        
         return {
             field_mappings: fieldMappings,
             extraction_config: {
@@ -356,7 +374,8 @@ class SimpleCRMExtractor {
             },
             export_config: {
                 use_display_names: true,
-                include_metadata: true
+                include_metadata: true,
+                scrub_config: scrubConfig
             }
         };
     }
