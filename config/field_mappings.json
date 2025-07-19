@@ -38,6 +38,21 @@
     },
     "container_selector": ".listRow, .deal-row, .person-row"
   },
+  "ringy": {
+    "name": "Ringy CRM",
+    "description": "Field mappings for Ringy CRM system",
+    "mappings": {
+      "name": ".contact-name, .lead-name, .full-name, input[name*='name'], .name-field",
+      "email": ".email, .contact-email, input[type='email'], input[name*='email'], a[href^='mailto:']",
+      "phone": ".phone, .contact-phone, input[type='tel'], input[name*='phone'], a[href^='tel:']",
+      "company": ".company, .contact-company, input[name*='company'], .company-name",
+      "title": ".title, .job-title, input[name*='title'], .position",
+      "status": ".status, .lead-status, .contact-status, select[name*='status']",
+      "lead_source": ".source, .lead-source, select[name*='source']",
+      "notes": ".notes, .comments, textarea[name*='notes']"
+    },
+    "container_selector": ".contact-row, .lead-item, .contact-card, tr, .list-item, .contact-entry"
+  },
   "generic": {
     "name": "Generic CRM",
     "description": "Generic field mappings for unknown CRM systems",
