@@ -2,8 +2,12 @@ from flask import Flask, render_template, request, jsonify, send_file
 import json
 import os
 import logging
+import gc
+import tempfile
+import time
 from data_extractor import DataExtractor
 from csv_exporter import CSVExporter
+from batch_processor import BatchProcessor
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,6 +18,7 @@ app = Flask(__name__)
 # Global instances
 data_extractor = DataExtractor()
 csv_exporter = CSVExporter()
+batch_processor = BatchProcessor()
 
 @app.route('/')
 def index():
@@ -48,11 +53,18 @@ def extract_from_html():
             extraction_config
         )
         
+        preview_data = extracted_data[:10]  # Get preview before clearing
+        total_count = len(extracted_data)
+        
+        # Clear the full dataset from memory after getting preview
+        extracted_data = None
+        gc.collect()
+        
         return jsonify({
             'success': True,
-            'message': f'Extracted {len(extracted_data)} leads',
-            'data': extracted_data[:10],  # Return first 10 for preview
-            'total_count': len(extracted_data)
+            'message': f'Extracted {total_count} leads',
+            'data': preview_data,  # Return first 10 for preview
+            'total_count': total_count
         })
         
     except Exception as e:
@@ -84,28 +96,83 @@ def export_from_html():
                 'message': 'Please configure at least one field mapping'
             })
         
-        # Extract data
-        extracted_data = data_extractor.extract_leads(
-            html_content, 
-            field_mappings, 
-            extraction_config
-        )
+        max_leads = extraction_config.get('max_leads', 1000)
         
-        if not extracted_data:
-            return jsonify({
-                'success': False,
-                'message': 'No data extracted from the provided HTML'
-            })
+        # For large datasets, use batch processing to avoid memory issues
+        if max_leads > 10000:
+            logger.info(f"Processing large dataset with {max_leads} max leads using batch processor")
+            
+            # Create temporary file for large dataset processing
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as temp_file:
+                temp_path = temp_file.name
+            
+            try:
+                # Use batch processor for large datasets
+                total_records = batch_processor.export_large_csv(
+                    html_content, field_mappings, extraction_config, export_config, temp_path
+                )
+                
+                if total_records == 0:
+                    os.unlink(temp_path)  # Clean up temp file
+                    return jsonify({
+                        'success': False,
+                        'message': 'No data extracted from the provided HTML'
+                    })
+                
+                # Send file and clean up immediately after
+                def remove_file(response):
+                    try:
+                        os.unlink(temp_path)
+                        gc.collect()  # Force garbage collection
+                    except Exception:
+                        pass
+                    return response
+                
+                response = send_file(
+                    temp_path,
+                    as_attachment=True,
+                    download_name=f"crm_leads_{total_records}_records.csv",
+                    mimetype='text/csv'
+                )
+                
+                # Schedule file cleanup after response
+                response.call_on_close(lambda: os.unlink(temp_path) if os.path.exists(temp_path) else None)
+                
+                return response
+                
+            except Exception as e:
+                # Clean up temp file on error
+                if os.path.exists(temp_path):
+                    os.unlink(temp_path)
+                raise e
         
-        # Export to CSV
-        csv_file_path = csv_exporter.export_to_csv(extracted_data, export_config)
-        
-        return send_file(
-            csv_file_path,
-            as_attachment=True,
-            download_name=f"crm_leads_{len(extracted_data)}_records.csv",
-            mimetype='text/csv'
-        )
+        else:
+            # For smaller datasets, use normal processing
+            extracted_data = data_extractor.extract_leads(
+                html_content, 
+                field_mappings, 
+                extraction_config
+            )
+            
+            if not extracted_data:
+                return jsonify({
+                    'success': False,
+                    'message': 'No data extracted from the provided HTML'
+                })
+            
+            # Export to CSV
+            csv_file_path = csv_exporter.export_to_csv(extracted_data, export_config)
+            
+            # Clear extracted data from memory immediately
+            extracted_data = None
+            gc.collect()
+            
+            return send_file(
+                csv_file_path,
+                as_attachment=True,
+                download_name=f"crm_leads_export.csv",
+                mimetype='text/csv'
+            )
         
     except Exception as e:
         logger.error(f"Error exporting CSV: {str(e)}")
@@ -162,6 +229,18 @@ if __name__ == '__main__':
     # Ensure required directories exist
     os.makedirs('config', exist_ok=True)
     os.makedirs('exports', exist_ok=True)
+    
+    # Clean up old export files on startup
+    try:
+        export_files = [f for f in os.listdir('exports') if f.endswith('.csv')]
+        for file in export_files:
+            file_path = os.path.join('exports', file)
+            # Remove files older than 1 hour
+            if os.path.getmtime(file_path) < (time.time() - 3600):
+                os.unlink(file_path)
+                logger.info(f"Cleaned up old export file: {file}")
+    except Exception as e:
+        logger.warning(f"Error cleaning up old files: {str(e)}")
     
     # Start the Flask application
     app.run(host='0.0.0.0', port=5000, debug=True)

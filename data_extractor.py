@@ -39,7 +39,7 @@ class DataExtractor:
             
             extraction_config = extraction_config or {}
             container_selector = extraction_config.get('container_selector')
-            max_leads = extraction_config.get('max_leads', 100)
+            max_leads = extraction_config.get('max_leads', 500000)
             
             # If container selector is provided, find all lead containers
             if container_selector:

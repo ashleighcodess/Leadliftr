@@ -268,7 +268,7 @@ class SimpleCRMExtractor {
             const result = await response.json();
             
             if (result.success) {
-                this.extractedData = result.data;
+                // Don't store extracted data - just use for preview
                 this.displayDataPreview(result.data, result.total_count);
                 this.showMessage('success', result.message);
             } else {
