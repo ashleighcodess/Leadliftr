@@ -1208,8 +1208,8 @@ body::after {
         text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
     }
     50% { 
-        filter: brightness(1.2) drop-shadow(0 0 20px rgba(255, 107, 107, 0.5)); 
-        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 107, 107, 0.7);
+        filter: brightness(1.2) drop-shadow(0 0 20px rgba(156, 136, 255, 0.5)); 
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8), 0 0 30px rgba(156, 136, 255, 0.7);
     }
 }
 
