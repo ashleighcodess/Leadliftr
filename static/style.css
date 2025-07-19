@@ -1270,7 +1270,8 @@ body::after {
 .feature-point {
     margin-bottom: 0.75rem;
     font-weight: 500;
-    color: #4a5568;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 
 .stats-card {
@@ -1370,20 +1371,13 @@ body::after {
     letter-spacing: 0.5px;
 }
 
-/* Theme Toggle */
-.theme-toggle-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.theme-toggle {
-    background: rgba(255, 255, 255, 0.2);
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 25px;
-    width: 60px;
-    height: 60px;
+/* Header Theme Toggle */
+.theme-toggle-header {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    width: 45px;
+    height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1392,15 +1386,17 @@ body::after {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
+    margin-left: 1rem;
 }
 
-.theme-toggle:hover {
+.theme-toggle-header:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .theme-icon {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     transition: all 0.3s ease;
     position: absolute;
 }
@@ -1410,11 +1406,27 @@ body::after {
     transform: scale(0);
 }
 
-.theme-label {
+/* Stats Placeholder */
+.stats-placeholder {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.emoji-decoration {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    animation: wiggle 2s infinite;
+}
+
+.decoration-text {
     color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
     font-weight: 600;
     margin: 0;
+    font-size: 0.9rem;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -1457,19 +1469,34 @@ body.light-mode .theme-label {
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
-body.light-mode .theme-toggle {
+body.light-mode .theme-toggle-header {
     background: rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(0, 0, 0, 0.2);
 }
 
-body.light-mode .theme-toggle .sun-icon {
+body.light-mode .theme-toggle-header:hover {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+body.light-mode .theme-toggle-header .sun-icon {
     opacity: 0;
     transform: scale(0);
 }
 
-body.light-mode .theme-toggle .moon-icon {
+body.light-mode .theme-toggle-header .moon-icon {
     opacity: 1;
     transform: scale(1);
+}
+
+body.light-mode .stats-placeholder {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .decoration-text {
+    color: #4a5568;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 body.light-mode .trendy-tip {
@@ -1483,7 +1510,8 @@ body.light-mode .step-title {
 }
 
 body.light-mode .feature-point {
-    color: #4a5568;
+    color: #1a1a1a;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 /* Premium Navbar Text */
